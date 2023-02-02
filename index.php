@@ -9,7 +9,7 @@
     <link rel="shortcut icon" href="./picture1.jpg" type="image/webp">
     <link rel="icon" href="./picture1.jpg" type="image/webp">
     <meta name="description" content="Prathmesh is a Sotware Developer at Persistent Systems, Pune." />
-    <meta property="og:title" content="Gaurav Sarage" />
+    <meta property="og:title" content="Prathmesh Choudhari" />
     <meta property="og:url" content="" />
     <meta property="og:description"
         content="Prathmesh is a 2022 pass-out Computer Engineer and Machine Learning Researcher from India" />
@@ -30,14 +30,14 @@
     <script src="https://kit.fontawesome.com/e7ae6f3064.js" crossorigin="anonymous"></script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-MGHS47CX63"></script>
     <script>
-        window.dataLayer = window.dataLayer || [];
+    window.dataLayer = window.dataLayer || [];
 
-        function gtag() {
-            dataLayer.push(arguments);
-        }
-        gtag('js', new Date());
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
 
-        gtag('config', 'G-MGHS47CX63');
+    gtag('config', 'G-MGHS47CX63');
     </script>
 </head>
 
