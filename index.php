@@ -11,8 +11,7 @@
     <meta name="description" content="Prathmesh is a Sotware Developer at Persistent Systems, Pune." />
     <meta property="og:title" content="Prathmesh Choudhari" />
     <meta property="og:url" content="" />
-    <meta property="og:description"
-        content="Prathmesh is a 2022 pass-out Computer Engineer and Machine Learning Researcher from India" />
+    <meta property="og:description" content="Prathmesh is a 2022 pass-out Computer Engineer and Machine Learning Researcher from India" />
     <meta property="og:image:secure_url" content="./picture1.jpg" />
     <meta property="og:image" content="./picture1.jpg" />
     <meta property="profile:username" content="iampratham29" />
@@ -25,19 +24,18 @@
     <link rel="stylesheet" href="style.css" />
     <title>Prathmesh Choudhari</title>
     <link rel="shortcut icon" href="./assets/img/favicon.ico" type="image/x-icon" />
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9197262750146918"
-        crossorigin="anonymous"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9197262750146918" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/e7ae6f3064.js" crossorigin="anonymous"></script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-MGHS47CX63"></script>
     <script>
-    window.dataLayer = window.dataLayer || [];
+        window.dataLayer = window.dataLayer || [];
 
-    function gtag() {
-        dataLayer.push(arguments);
-    }
-    gtag('js', new Date());
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
 
-    gtag('config', 'G-MGHS47CX63');
+        gtag('config', 'G-MGHS47CX63');
     </script>
 </head>
 
@@ -106,8 +104,7 @@
             <div class="home_container container grid">
                 <div class="home_content grid">
                     <div class="home_social">
-                        <a href="https://www.linkedin.com/in/prathmesh-choudhari-943769170/" class="home_social-icon"
-                            target="_blank">
+                        <a href="https://www.linkedin.com/in/prathmesh-choudhari-943769170/" class="home_social-icon" target="_blank">
                             <i class="uil uil-linkedin-alt"></i>
                         </a>
 
@@ -125,8 +122,7 @@
                     </div>
 
                     <div class="home_img">
-                        <svg class="home_blob" viewBox="0 0 200 187" xmlns="http://www.w3.org/2000/svg"
-                            xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <svg class="home_blob" viewBox="0 0 200 187" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                             <mask id="mask0" mask-type="alpha">
                                 <path d="M190.312 36.4879C206.582 62.1187 201.309 102.826 182.328 134.186C163.346 165.547 
                     130.807 187.559 100.226 186.353C69.6454 185.297 41.0228 161.023 21.7403 129.362C2.45775 
@@ -138,8 +134,7 @@
                     165.547 130.807 187.559 100.226 186.353C69.6454 185.297 41.0228 161.023 21.7403 
                     129.362C2.45775 97.8511 -7.48481 59.1033 6.67581 34.5279C20.9871 10.1032 59.7028 
                     -0.149132 97.9666 0.00163737C136.23 0.303176 174.193 10.857 190.312 36.4879Z" />
-                                <image class="home_blob-img" style="height: 200px; Width: 225px;" x="-12" y="0"
-                                    href="./picture1.jpg" />
+                                <image class="home_blob-img" style="height: 200px; Width: 225px;" x="-12" y="0" href="./picture1.jpg" />
                             </g>
                         </svg>
                     </div>
@@ -184,8 +179,7 @@
                         Systems, Pune
                     </p>
                     <div class="about_button">
-                        <a download="" href="./Prathmesh_Choudhari_resume.pdf" class="button button--flex"
-                            target="_blank">
+                        <a download="" href="./Prathmesh_Choudhari_resume.pdf" class="button button--flex" target="_blank">
                             Resume<i class="uil uil-file-download-alt button_icon"></i>
                         </a>
                     </div>
@@ -533,8 +527,7 @@
                                 user.<br>
                                 - Won an intercollege hackathon.
                             </p>
-                            <a href="https://docs.google.com/presentation/d/1x9M5_ItrVxQHofroyNyMVtMrG_4g9APh/edit?usp=sharing&ouid=106465311006086738936&rtpof=true&sd=true"
-                                class="button button-flex button-small portfolio_button" target="_blank">
+                            <a href="https://docs.google.com/presentation/d/1x9M5_ItrVxQHofroyNyMVtMrG_4g9APh/edit?usp=sharing&ouid=106465311006086738936&rtpof=true&sd=true" class="button button-flex button-small portfolio_button" target="_blank">
                                 Check out
                                 <i class="uil uil-arrow-right button_icon"></i>
                             </a>
@@ -553,13 +546,10 @@
                                 attain in Adaptive Speech Mixing & Audio-Video Synchronization
 
                             </p>
-                            <a href="https://space-vaarta.herokuapp.com/"
-                                class="button button-flex button-small portfolio_button" target="_blank">
+                            <a href="https://space-vaarta.herokuapp.com/" class="button button-flex button-small portfolio_button" target="_blank">
                                 Check out
                             </a>
-                            <a style="background-color: rgb(68, 206, 78);"
-                                href="https://www.youtube.com/watch?v=4w5bn6j4jEU&feature=youtu.be"
-                                class="button button-flex button-small portfolio_button" target="_blank">
+                            <a style="background-color: rgb(68, 206, 78);" href="https://www.youtube.com/watch?v=4w5bn6j4jEU&feature=youtu.be" class="button button-flex button-small portfolio_button" target="_blank">
                                 Watch
                             </a>
                         </div>
@@ -582,8 +572,7 @@
                                     <ul>- Auto create Employee payslips</ul><br>
                                 <li>
                             </p>
-                            <a href="https://www.youtube.com/watch?v=in33uMGHfBM"
-                                class="button button-flex button-small portfolio_button" target="_blank">
+                            <a href="https://www.youtube.com/watch?v=in33uMGHfBM" class="button button-flex button-small portfolio_button" target="_blank">
                                 Watch Video
                                 <i class="uil uil-arrow-right button_icon"></i>
                             </a>
@@ -602,8 +591,7 @@
                                 of Vertibral Column in AP(Anterio Posterior) View, and calculates Cobb Angles. Cobb
                                 Angle is a measure for estimating the need of Surgery
                             </p>
-                            <a href="https://cobbfinder.herokuapp.com/"
-                                class="button button-flex button-small portfolio_button" target="_blank">
+                            <a href="https://cobbfinder.herokuapp.com/" class="button button-flex button-small portfolio_button" target="_blank">
                                 Check out
                                 <i class="uil uil-arrow-right button_icon"></i>
                             </a>
@@ -611,7 +599,7 @@
                     </div>
                     <!-- Project 5 -->
                     <div class="portfolio_content grid swiper-slide">
-                        <img src="./payment-gateway-integration.png" alt="" class="portfolio_img">
+                        <img src="./ai_game.JPG" alt="" class="portfolio_img">
 
                         <div class="portfolio_data">
                             <h3 class="portfolio_title">
@@ -622,8 +610,7 @@
                                 Reduced runtime lag of 10 seconds to less than 1 second for non-GPU devices by avoiding
                                 use of complex Neural Networks.
                             </p>
-                            <a href="https://drive.google.com/drive/u/2/folders/1Q6MYCS9Ru3HFyE1jzVl8zYczx29ow7Mv"
-                                class="button button-flex button-small portfolio_button" target="_blank">
+                            <a href="https://drive.google.com/drive/u/2/folders/1Q6MYCS9Ru3HFyE1jzVl8zYczx29ow7Mv" class="button button-flex button-small portfolio_button" target="_blank">
                                 Check out
                                 <i class="uil uil-arrow-right button_icon"></i>
                             </a>
@@ -678,8 +665,7 @@
                     </a>
                 </div>
 
-                <form action="https://formspree.io/f/xgebodzk" class="contact_form grid" id="contact-form"
-                    method="POST">
+                <form action="https://formspree.io/f/xgebodzk" class="contact_form grid" id="contact-form" method="POST">
                     <div id="alert" class="alert_style"></div>
                     <div class="contact_inputs grid">
                         <div class="contact_content">
@@ -697,8 +683,7 @@
                     </div>
                     <div class="contact_content">
                         <label for="message" class="contact_label">Message</label>
-                        <textarea name="message" id="" cols="0" rows="7" class="contact_input message" id="message"
-                            required></textarea>
+                        <textarea name="message" id="" cols="0" rows="7" class="contact_input message" id="message" required></textarea>
                     </div>
 
                     <div>
@@ -750,8 +735,7 @@
                 </ul>
 
                 <div class="footer_socials">
-                    <a href="https://www.linkedin.com/in/prathmesh-choudhari-943769170/" class="footer_social"
-                        target="_blank">
+                    <a href="https://www.linkedin.com/in/prathmesh-choudhari-943769170/" class="footer_social" target="_blank">
                         <i class="uil uil-linkedin-alt"></i>
                     </a>
 
