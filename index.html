@@ -1,788 +1,440 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="shortcut icon" href="./picture1.jpg" type="image/webp">
-    <link rel="icon" href="./picture1.jpg" type="image/webp">
-    <meta name="description" content="Prathmesh is a Sotware Developer at Persistent Systems, Pune." />
-    <meta property="og:title" content="Gaurav Sarage" />
-    <meta property="og:url" content="" />
-    <meta property="og:description"
-        content="Prathmesh is a 2022 pass-out Computer Engineer and Machine Learning Researcher from India" />
-    <meta property="og:image:secure_url" content="./picture1.jpg" />
-    <meta property="og:image" content="./picture1.jpg" />
-    <meta property="profile:username" content="iampratham29" />
-    <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="Prathmesh Choudhari" />
-    <meta name="twitter:image" content="./picture1.jpg" />
-    <meta name="twitter:url" content="https://www.linkedin.com/in/prathmesh-choudhari-943769170/" />
+    <title>Prathmesh Santosh Choudhari | AI Builder & Software Engineer</title>
+    <!-- Unicons & Font Awesome for icons -->
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css" />
-    <link rel="stylesheet" href="swiper-bundle.min.css">
-    <link rel="stylesheet" href="style.css" />
-    <title>Prathmesh Choudhari</title>
-    <link rel="shortcut icon" href="./assets/img/favicon.ico" type="image/x-icon" />
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9197262750146918"
-        crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/e7ae6f3064.js" crossorigin="anonymous"></script>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-MGHS47CX63"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-
-        function gtag() {
-            dataLayer.push(arguments);
+    <!-- Tailwind for layout -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8f7f4;
+            color: #1a1a1a;
+            transition: background 0.3s, color 0.3s;
         }
-        gtag('js', new Date());
-
-        gtag('config', 'G-MGHS47CX63');
-    </script>
+        .bg-warm-neutral { background-color: #f8f7f4; }
+        .bg-soft-accent { background-color: #e6e2da; }
+        .text-primary { color: #1a1a1a; }
+        .text-secondary { color: #5c5c5c; }
+        .btn-primary {
+            background-color: #1a1a1a;
+            color: #f8f7f4;
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover {
+            background-color: #333333;
+            transform: translateY(-2px);
+        }
+        .btn-secondary {
+            border: 1px solid #1a1a1a;
+            color: #1a1a1a;
+            transition: all 0.3s ease;
+        }
+        .btn-secondary:hover {
+            background-color: #1a1a1a;
+            color: #f8f7f4;
+        }
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+        .nav-link {
+            transition: color 0.3s ease;
+        }
+        .nav-link:hover {
+            color: #8a8a8a;
+        }
+        .project-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 8px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background-color: #d1d5db;
+        }
+        .timeline-item {
+            position: relative;
+            width: 100%;
+            padding-left: 40px;
+            text-align: left;
+            margin-bottom: 2rem;
+        }
+        .timeline-content {
+            padding: 20px 30px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+        .timeline-dot {
+            position: absolute;
+            left: 0;
+            width: 16px;
+            height: 16px;
+            background-color: #1a1a1a;
+            border-radius: 50%;
+            top: 24px;
+            z-index: 10;
+        }
+        /* Dark mode styles */
+        body.dark {
+            background-color: #18181b;
+            color: #f8f7f4;
+        }
+        body.dark .bg-warm-neutral { background-color: #18181b; }
+        body.dark .bg-soft-accent { background-color: #232326; }
+        body.dark .text-primary { color: #f8f7f4; }
+        body.dark .text-secondary { color: #b3b3b3; }
+        body.dark .btn-primary {
+            background-color: #f8f7f4;
+            color: #18181b;
+        }
+        body.dark .btn-primary:hover {
+            background-color: #b3b3b3;
+            color: #18181b;
+        }
+        body.dark .btn-secondary {
+            border: 1px solid #f8f7f4;
+            color: #f8f7f4;
+        }
+        body.dark .btn-secondary:hover {
+            background-color: #f8f7f4;
+            color: #18181b;
+        }
+        body.dark .project-card {
+            background-color: #232326;
+        }
+        body.dark .timeline-content {
+            background-color: #232326;
+        }
+        body.dark footer {
+            background-color: #232326;
+            color: #f8f7f4;
+        }
+    </style>
 </head>
+<body class="bg-warm-neutral text-primary">
 
-<body>
-    <!-- Header -->
-    <header class="header" id="header">
-        <nav class="nav container">
-            <h2><a href="#" class="nav_logo">Prathmesh Choudhari</a></h2>
-
-            <div class="nav_menu" id="nav-menu">
-                <ul class="nav_list grid">
-                    <li class="nav_item">
-                        <a href="#home" class="nav_link active-link">
-                            <i class="uil uil-estate nav_icon"></i> Home
-                        </a>
-                    </li>
-                    <li class="nav_item">
-                        <a href="#about" class="nav_link">
-                            <i class="uil uil-user nav_icon"></i>About
-                        </a>
-                    </li>
-                    <li class="nav_item">
-                        <a href="#skills" class="nav_link">
-                            <i class="uil uil-file-alt nav_icon"></i>Skills
-                        </a>
-                    </li>
-                    <li class="nav_item">
-                        <a href="#qualification" class="nav_link">
-                            <i class="uil uil-graduation-cap nav_icon"></i>Qualifications
-                        </a>
-                    </li>
-                    <li class="nav_item">
-                        <a href="#projects" class="nav_link">
-                            <i class="uil uil-scenery nav_icon"></i>Projects
-                        </a>
-                    </li>
-                    <li class="nav_item">
-                        <a href="#awards" class="nav_link">
-                            <i class="uil uil-briefcase-alt nav_icon"></i>Certifications
-                        </a>
-                    </li>
-                    <li class="nav_item">
-                        <a href="#contact" class="nav_link">
-                            <i class="uil uil-message nav-icon nav_icon"></i>Contact
-                        </a>
-                    </li>
-                </ul>
-                <i class="uil uil-times nav_close" id="nav-close"></i>
+    <!-- Header with dark mode toggle -->
+    <header id="header" class="bg-warm-neutral/80 backdrop-blur-sm fixed top-0 left-0 right-0 z-50 shadow-sm transition-all duration-300">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#home" class="text-xl font-bold">Prathmesh Santosh Choudhari</a>
+            <nav class="hidden md:flex space-x-8">
+                <a href="#about" class="nav-link"><i class="uil uil-user nav_icon"></i> About</a>
+                <a href="#projects" class="nav-link"><i class="uil uil-scenery nav_icon"></i> Projects</a>
+                <a href="#experience" class="nav-link"><i class="uil uil-briefcase-alt nav_icon"></i> Experience</a>
+                <a href="#skills" class="nav-link"><i class="uil uil-file-alt nav_icon"></i> Skills</a>
+                <a href="#contact" class="nav-link"><i class="uil uil-message nav_icon"></i> Contact</a>
+            </nav>
+            <div class="flex items-center gap-4">
+                <button id="dark-mode-toggle" class="text-xl px-2 py-1 rounded focus:outline-none" title="Toggle dark mode">
+                    <i class="uil uil-moon"></i>
+                </button>
+                <button id="mobile-menu-button" class="md:hidden">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
             </div>
-
-            <div class="nav_btns">
-                <!-- Change Theme -->
-                <i class="uil uil-moon change-theme" id="theme-button"></i>
-
-                <div class="nav_toggle" id="nav-toggle">
-                    <i class="uil uil-apps"></i>
-                </div>
-            </div>
-        </nav>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-warm-neutral">
+            <a href="#about" class="block text-center py-2 px-4 nav-link"><i class="uil uil-user nav_icon"></i> About</a>
+            <a href="#projects" class="block text-center py-2 px-4 nav-link"><i class="uil uil-scenery nav_icon"></i> Projects</a>
+            <a href="#experience" class="block text-center py-2 px-4 nav-link"><i class="uil uil-briefcase-alt nav_icon"></i> Experience</a>
+            <a href="#skills" class="block text-center py-2 px-4 nav-link"><i class="uil uil-file-alt nav_icon"></i> Skills</a>
+            <a href="#contact" class="block text-center py-2 px-4 nav-link"><i class="uil uil-message nav_icon"></i> Contact</a>
+        </div>
     </header>
 
-    <!-- Main -->
-    <main class="main">
-        <!-- Home -->
-        <section class="home section" id="home">
-            <div class="home_container container grid">
-                <div class="home_content grid">
-                    <div class="home_social">
-                        <a href="https://www.linkedin.com/in/prathmesh-choudhari-943769170/" class="home_social-icon"
-                            target="_blank">
-                            <i class="uil uil-linkedin-alt"></i>
-                        </a>
-
-                        <a href="https://github.com/iampratham29/" class="home_social-icon" target="_blank">
-                            <i class="uil uil-github-alt"></i>
-                        </a>
-
-                        <a href="https://twitter.com/pratham_uvaach" class="home_social-icon" target="_blank">
-                            <i class="uil uil-twitter-alt"></i>
-                        </a>
-
-                        <a href="https://www.instagram.com/iampratham_29/" class="home_social-icon" target="_blank">
-                            <i class="uil uil-instagram"></i>
-                        </a>
-                    </div>
-
-                    <div class="home_img">
-                        <svg class="home_blob" viewBox="0 0 200 187" xmlns="http://www.w3.org/2000/svg"
-                            xmlns:xlink="http://www.w3.org/1999/xlink">
-                            <mask id="mask0" mask-type="alpha">
-                                <path d="M190.312 36.4879C206.582 62.1187 201.309 102.826 182.328 134.186C163.346 165.547 
-                    130.807 187.559 100.226 186.353C69.6454 185.297 41.0228 161.023 21.7403 129.362C2.45775 
-                    97.8511 -7.48481 59.1033 6.67581 34.5279C20.9871 10.1032 59.7028 -0.149132 97.9666 
-                    0.00163737C136.23 0.303176 174.193 10.857 190.312 36.4879Z" />
-                            </mask>
-                            <g mask="url(#mask0)">
-                                <path d="M190.312 36.4879C206.582 62.1187 201.309 102.826 182.328 134.186C163.346 
-                    165.547 130.807 187.559 100.226 186.353C69.6454 185.297 41.0228 161.023 21.7403 
-                    129.362C2.45775 97.8511 -7.48481 59.1033 6.67581 34.5279C20.9871 10.1032 59.7028 
-                    -0.149132 97.9666 0.00163737C136.23 0.303176 174.193 10.857 190.312 36.4879Z" />
-                                <image class="home_blob-img" style="height: 200px; Width: 225px;" x="-12" y="0"
-                                    href="./picture1.jpg" />
-                            </g>
-                        </svg>
-                    </div>
-
-                    <div class="home_data">
-                        <h1 class="home_title">Hello, I'm Prathmesh</h1>
-                        <h3 class="home_subtitle">
-                            <span class="typewriter"></span> interest me
-                        </h3>
-
-                        <p class="home_description">
-                            A Sotware Deevloper and Researcher, who loves to make technology accessible for common
-                            people.
-                        </p>
-                        <a href="#about" class="button button--flex">
-                            Explore&nbsp;&nbsp;
-                            <i class="uil uil-message"></i>
-                        </a>
+    <main>
+        <!-- Home Section -->
+        <section id="home" class="min-h-screen flex items-center bg-soft-accent">
+            <div class="container mx-auto px-6 flex flex-col md:flex-row items-center gap-12">
+                <div class="md:w-1/2 text-center md:text-left">
+                    <h1 class="text-4xl md:text-6xl font-bold leading-tight mb-4">Prathmesh Santosh Choudhari</h1>
+                    <p class="text-xl md:text-2xl text-secondary mb-8">AI-First Builder, Software Engineer, & Entrepreneur</p>
+                    <p class="text-lg mb-8">Building scalable, intelligent systems that solve real-world problems with quantifiable impact.</p>
+                    <div class="flex justify-center md:justify-start gap-4">
+                        <a href="#projects" class="btn-primary py-3 px-6 rounded-lg font-semibold">View My Projects</a>
+                        <a href="https://github.com/iampratham29/" target="_blank" rel="noopener noreferrer" class="btn-secondary py-3 px-6 rounded-lg font-semibold flex items-center gap-2"><i class="uil uil-github-alt"></i> GitHub</a>
+                        <a href="https://www.linkedin.com/in/prathmesh-santosh-choudhari-943769170/" target="_blank" rel="noopener noreferrer" class="btn-secondary py-3 px-6 rounded-lg font-semibold flex items-center gap-2"><i class="uil uil-linkedin-alt"></i> LinkedIn</a>
+                        <a href="https://x.com/iampratham29" target="_blank" rel="noopener noreferrer" class="btn-secondary py-3 px-6 rounded-lg font-semibold flex items-center gap-2"><i class="uil uil-twitter-alt"></i> Twitter</a>
                     </div>
                 </div>
-
-                <div class="home_scroll">
-                    <a href="#about" class="home_scroll-button button--flex">
-                        <i class="uil uil-mouse-alt home_scroll-mouse"></i>
-                        <span class="home_scroll-name">Scroll Down</span>
-                        <i class="uil uil-arrow-down home_scroll-arrow"></i>
-                    </a>
+                <div class="md:w-1/2">
+                    <img src="./picture1.jpg" alt="Prathmesh Santosh Choudhari" class="rounded-full shadow-2xl mx-auto" style="width:300px;height:300px;">
                 </div>
             </div>
         </section>
 
-        <!-- About -->
-        <section class="about section" id="about">
-            <h2 class="section_title">About Me</h2>
-            <span class="section_subtitle">My introduction</span>
-            <div class="about_container container grid">
-                <img src="./picture1.jpg" height="120px" width="120px" style="border-radius: 50%;" class="about_img" />
-                <div class="about_data">
-                    <p class="about_description">
-                        Hello. I'm Prathmesh, a 22-year-old Computer Engineer. I'm an aspiring Full-stack
-                        developer, a Machine Learning Researcher & I am exploring Salesforce Development at Persistent
-                        Systems, Pune
-                    </p>
-                    <div class="about_button">
-                        <a download="" href="./Prathmesh_Choudhari_resume.pdf" class="button button--flex"
-                            target="_blank">
-                            Resume<i class="uil uil-file-download-alt button_icon"></i>
-                        </a>
+        <!-- About Section -->
+        <section id="about" class="py-20">
+            <div class="container mx-auto px-6">
+                <h2 class="section-title">About Me</h2>
+                <div class="flex flex-col md:flex-row items-center gap-12">
+                    <div class="md:w-1/3">
+                        <img src="./picture1.jpg" alt="Prathmesh Santosh Choudhari Headshot" class="rounded-lg shadow-xl mx-auto" style="width:200px;height:200px;">
+                    </div>
+                    <div class="md:w-2/3 text-lg text-secondary space-y-4">
+                        <p>I am a passionate builder and problem-solver with a strong foundation in both software engineering and artificial intelligence. My journey began at the Vishwakarma Institute of Technology and will continue at the University of Florida, where I am pursuing a Master's in Computer Science.</p>
+                        <p>My professional experience at companies like Entytle and Persistent Systems has allowed me to architect and develop impactful AI-driven solutions and robust backend systems. I thrive on translating complex technical challenges into tangible business value, whether it's increasing user productivity by 50% with an AI agent or processing thousands of financial transactions daily.</p>
+                        <p>This drive extends to my entrepreneurial ventures, like founding Easy Code Classes, where I built a profitable online platform from the ground up. I am fueled by a results-driven mindset and a love for tackling complex challenges, always aiming to build something meaningful and innovative.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Skills -->
-        <section class="skills section" id="skills">
-            <h1 class="section_title">Skills</h1>
-            <span class="section_subtitle">My Technical Skills</span>
-            <div class="skills_container container grid">
-                <!-- Skill Set 1 -->
-                <div class="skill skills_content skills_open">
-                    <div class="skills_header">
-                        <i class="uil uil-arrow skills_icon"></i>
-
-                        <div>
-                            <h1 class="skills_title">Languages</h1>
-                            <span class="skills_subtitle">Skills I have picked up over the years</span>
+        <!-- Projects Portfolio Section -->
+        <section id="projects" class="py-20 bg-soft-accent">
+            <div class="container mx-auto px-6">
+                <h2 class="section-title">Projects Portfolio</h2>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Virtual Trial Room -->
+                    <div class="project-card bg-white rounded-lg shadow-md overflow-hidden">
+                        <img src="./prasako.JPG" alt="Virtual Trial Room Project" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2">Virtual Trial Room</h3>
+                            <p class="text-secondary mb-4">Engineered a neural network for a virtual garment try-on experience, achieving 88% user satisfaction.</p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="bg-gray-200 text-gray-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Python</span>
+                                <span class="bg-gray-200 text-gray-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Django</span>
+                                <span class="bg-gray-200 text-gray-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Machine Learning</span>
+                            </div>
+                            <div class="flex gap-2">
+                                <a href="https://docs.google.com/presentation/d/1x9M5_ItrVxQHofroyNyMVtMrG_4g9APh/edit?usp=sharing&ouid=106465311006086738936&rtpof=true&sd=true" target="_blank" class="btn-secondary py-2 px-4 rounded-lg font-semibold flex items-center gap-2"><i class="uil uil-book-open"></i> Read</a>
+                                <a href="https://www.youtube.com/watch?v=4w5bn6j4jEU&feature=youtu.be" target="_blank" class="btn-secondary py-2 px-4 rounded-lg font-semibold flex items-center gap-2"><i class="uil uil-youtube"></i> Watch Demo</a>
+                            </div>
                         </div>
-
-                        <i class="uil uil-angle-down skills_arrow"></i>
                     </div>
-
-                    <div class="skills_list grid">
-                        <div class="skills_data">
-                        </div>
-
-                        <div class="skills_data">
-                            <div class="skills_titles">
-                                <span class="single_skill_icon">
-                                    <i class="fab fa-python"></i>
-                                </span>
-                                <h3 class="skills_name">Python</h3>
+                    <!-- Cobb Angle Estimation -->
+                    <div class="project-card bg-white rounded-lg shadow-md overflow-hidden">
+                        <img src="./cobb_finder.JPG" alt="Cobb Angle Estimation" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2">Cobb Angle Estimation</h3>
+                            <p class="text-secondary mb-4">Neural network for scoliosis diagnosis using X-ray images, calculates Cobb Angles for surgery estimation.</p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="bg-gray-200 text-gray-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Python</span>
+                                <span class="bg-gray-200 text-gray-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">TensorFlow</span>
+                                <span class="bg-gray-200 text-gray-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Medical Imaging</span>
                             </div>
-                            <div class="skills_bar"></div>
-                        </div>
-
-                        <div class="skills_data">
-                            <div class="skills_titles">
-                                <span class="single_skill_icon">
-                                    <i class="fas fa-code"></i>
-                                </span>
-                                <h3 class="skills_name">C++</h3>
+                            <div class="flex gap-2">
+                                <a href="https://docs.google.com/presentation/d/1x9M5_ItrVxQHofroyNyMVtMrG_4g9APh/edit?usp=sharing&ouid=106465311006086738936&rtpof=true&sd=true" target="_blank" class="btn-secondary py-2 px-4 rounded-lg font-semibold flex items-center gap-2"><i class="uil uil-book-open"></i> Read</a>
+                                <a href="https://cobbfinder.herokuapp.com/" target="_blank" class="btn-secondary py-2 px-4 rounded-lg font-semibold flex items-center gap-2"><i class="uil uil-arrow-right"></i> Watch Demo</a>
                             </div>
-                            <div class="skills_bar"></div>
                         </div>
-
-                        <div class="skills_data">
-                            <div class="skills_titles">
-                                <span class="single_skill_icon">
-                                    <i class="fab fa-js-square"></i>
-                                </span>
-                                <h3 class="skills_name">JavaScript</h3>
+                    </div>
+                    <!-- HR & Payroll Software -->
+                    <div class="project-card bg-white rounded-lg shadow-md overflow-hidden">
+                        <img src="./hr_management.JPG" alt="HR & Payroll Software" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2">TEE: HR & Payroll Software</h3>
+                            <p class="text-secondary mb-4">Offline software for employee management, payroll, and reporting for a builder's firm.</p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="bg-gray-200 text-gray-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">PHP</span>
+                                <span class="bg-gray-200 text-gray-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">MySQL</span>
+                                <span class="bg-gray-200 text-gray-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Payroll</span>
                             </div>
-                            <div class="skills_bar"></div>
-                        </div>
-
-                        <div class="skills_data">
-                            <div class="skills_titles">
-                                <span class="single_skill_icon">
-                                    <i class="fas fa-code"></i>
-                                </span>
-                                <h3 class="skills_name">Apex</h3>
+                            <div class="flex gap-2">
+                                <a href="https://docs.google.com/presentation/d/1x9M5_ItrVxQHofroyNyMVtMrG_4g9APh/edit?usp=sharing&ouid=106465311006086738936&rtpof=true&sd=true" target="_blank" class="btn-secondary py-2 px-4 rounded-lg font-semibold flex items-center gap-2"><i class="uil uil-book-open"></i> Read</a>
+                                <a href="https://www.youtube.com/watch?v=in33uMGHfBM" target="_blank" class="btn-secondary py-2 px-4 rounded-lg font-semibold flex items-center gap-2"><i class="uil uil-youtube"></i> Watch Demo</a>
                             </div>
-                            <div class="skills_bar"></div>
                         </div>
-
                     </div>
                 </div>
-
-
-                <!-- Skill Set 3 -->
-                <div class="skill skills_content">
-                    <div class="skills_header">
-                        <i class="uil uil-wrench skills_icon"></i>
-
-                        <div>
-                            <h1 class="skills_title">Tools</h1>
-                            <span class="skills_subtitle">Tools I know and use on a daily basis</span>
-                        </div>
-
-                        <i class="uil uil-angle-down skills_arrow"></i>
-                    </div>
-
-                    <div class="skills_list grid">
-                        <div class="skills_data">
-                            <div class="skills_titles">
-                                <span class="single_skill_icon">
-                                    <i class="fab fa-git-alt"></i>
-                                </span>
-                                <h3 class="skills_name">Git</h3>
-                            </div>
-                            <div class="skills_bar"></div>
-                        </div>
-
-                        <div class="skills_data">
-                            <div class="skills_titles">
-                                <span class="single_skill_icon">
-                                    <i class="fab fa-gitlab"></i>
-                                </span>
-                                <h3 class="skills_name">GitLab and GitHub</h3>
-                            </div>
-                            <div class="skills_bar"></div>
-                        </div>
-
-                        <div class="skills_data">
-                            <div class="skills_titles">
-                                <span class="single_skill_icon">
-                                    <i class="fas fa-code"></i>
-                                </span>
-                                <h3 class="skills_name">VS Code</h3>
-                            </div>
-                            <div class="skills_bar"></div>
-                        </div>
-
-                        <div class="skills_data">
-                            <div class="skills_titles">
-                                <span class="single_skill_icon external-logo">
-                                    <i class="fab fa-jira"></i>
-                                </span>
-                                <h3 class="skills_name">Jira</h3>
-                            </div>
-                            <div class="skills_bar"></div>
-                        </div>
-
-                    </div>
+                <div class="flex justify-center mt-8">
+                    <a href="https://projects.iampratham29.com" target="_blank" class="btn-primary py-3 px-8 rounded-lg font-semibold flex items-center gap-2"><i class="uil uil-arrow-right"></i> View More Projects</a>
                 </div>
-
             </div>
         </section>
 
-        <!-------------------------- Qualifications -------------------------->
-
-
-        <section class="qualification section" id="qualification">
-            <h2 class="section_title">Qualifications</h2>
-            <span class="section_subtitle">My Educational Qualification & Work Experience</span>
-
-            <div class="qualification_container container">
-                <div class="qualification_tabs">
-                    <div class="qualification_button button-flex" id="educationheader">
-                        <i class="uil uil-graduation-cap qualification_icon"></i>Education
-                    </div>
-
-                    <div class="qualification_button button-flex" id="workheader">
-                        <i class="uil uil-briefcase-alt qualification_icon"></i>Work
-                    </div>
-                </div>
-
-                <div class="qualification_sections">
-                    <!-- Educational Qualification -->
-                    <div class="qualification_content qualification_active" data-content id="education">
-
-                        <div class="qualification_data">
-                            <div>
-                                <h3 class="qualification_title">B.E, Computer Science</h3>
-                                <span class="qualification_subtitle">VIT, Pune</span>
-                                <div class="qualification_calendar">
-                                    <i class="uil uil-calendar-alt"></i> 2018 - 2022
-                                </div>
-                            </div>
-                            <div>
-                                <span class="qualification_circle"></span>
-                                <span class="qualification_line"></span>
-                            </div>
-                        </div>
-
-                        <div class="qualification_data">
-                            <div></div>
-                            <div>
-                                <span class="qualification_circle"></span>
-                                <span class="qualification_line"></span>
-                            </div>
-                            <div>
-                                <h3 class="qualification_title">Honors, AI & DA</h3>
-                                <span class="qualification_subtitle">VIT, Pune</span>
-                                <div class="qualification_calendar">
-                                    <i class="uil uil-calendar-alt"></i> 2018 - 2020
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="qualification_data">
-                            <div>
-                                <h3 class="qualification_title">Higschool Education (12th)</h3>
-                                <span class="qualification_subtitle">Sharada Mahavidyalaya, Parbhani </span>
-                                <div class="qualification_calendar">
-                                    <i class="uil uil-calendar-alt"></i> 2016 - 2018
-                                </div>
-                            </div>
-                            <div>
-                                <span class="qualification_circle"></span>
-                                <span class="qualification_line"></span>
-                            </div>
-                        </div>
-
-                        <div class="qualification_data">
-                            <div></div>
-                            <div>
-                                <span class="qualification_circle"></span>
-                                <span class="qualification_line"></span>
-                            </div>
-                            <div>
-                                <h3 class="qualification_title">Senior Secondary Education (10th)</h3>
-                                <span class="qualification_subtitle">Bal Vidya Mandir Higschool, Parbhani</span>
-                                <div class="qualification_calendar">
-                                    <i class="uil uil-calendar-alt"></i> 2016
-                                </div>
-                            </div>
+        <!-- Experience Timeline Section (Concise) -->
+        <section id="experience" class="py-20">
+            <div class="container mx-auto px-6">
+                <h2 class="section-title">Professional Experience</h2>
+                <div class="relative timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h3 class="text-xl font-bold">Entytle (2023-Present)</h3>
+                            <p class="text-secondary">AI agent & event-driven backend, boosting productivity and data extraction.</p>
                         </div>
                     </div>
-
-                    <!-- Work Experience -->
-                    <div class="qualification_content qualification-inactive" data-content id="work">
-
-
-                        <!-----------------AirMenus Operations Lead  ---------------->
-
-                        <div class="qualification_data">
-                            <div>
-                                <h3 class="qualification_title">Software Engineer</h3>
-                                <span class="qualification_subtitle"><i>Full Time</i><br>Persistent Systems, Pune</span>
-                                <div class="qualification_calendar">
-                                    <i class="uil uil-calendar-alt"></i> June 2022 - Present
-                                </div>
-                            </div>
-
-                            <div>
-                                <span class="qualification_circle"></span>
-                                <span class="qualification_line"></span>
-                            </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h3 class="text-xl font-bold">Persistent Systems (2021-2023)</h3>
+                            <p class="text-secondary">Salesforce automation, API development, and large-scale data migration.</p>
                         </div>
-
-
-
-                        <!----------------Yellow Fryum ------------------->
-                        <div class="qualification_data">
-                            <div></div>
-
-                            <div>
-                                <span class="qualification_circle"></span>
-                                <span class="qualification_line"></span>
-                                <!-- <span class="qualification_line"></span> -->
-                            </div>
-
-                            <div>
-                                <h3 class="qualification_title">Software Developer Intern</h3>
-                                <span class="qualification_subtitle"><i>Internship</i><br>Persistent Systems,
-                                    Pune</span>
-                                <div class="qualification_calendar">
-                                    <i class="uil uil-calendar-alt"></i> Jan 2022 - June 2022
-                                </div>
-                            </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h3 class="text-xl font-bold">Easy Code Classes (2021-2022)</h3>
+                            <p class="text-secondary">Founded and scaled online coding platform to 2,000+ students.</p>
                         </div>
-
-
-                        <!----------  Amazon ML Summer School  ---------------->
-
-                        <div class="qualification_data">
-                            <div>
-                                <h3 class="qualification_title">Web Developer and Instructor</h3>
-                                <span class="qualification_subtitle"><i>Co-founder</i><br>Easy Code Classes, Pune</span>
-                                <div class="qualification_calendar">
-                                    <i class="uil uil-calendar-alt"></i> Jan 2021 - May 2022
-                                </div>
-                            </div>
-
-                            <div>
-                                <span class="qualification_circle"></span>
-                                <span class="qualification_line"></span>
-                            </div>
-                        </div>
-
-
-
-                        <!---------  The Sparks Foundation ------------>
-                        <div class="qualification_data">
-                            <div></div>
-
-                            <div>
-                                <span class="qualification_circle"></span>
-                                <span class="qualification_line"></span>
-                                <!-- <span class="qualification_line"></span> -->
-                            </div>
-
-                            <div>
-                                <h3 class="qualification_title">Machine Learning Researcher</h3>
-                                <span class="qualification_subtitle"><i>Internship</i><br>Symbiosis International
-                                    Uniersity,
-                                    Pune(Remote)</span>
-                                <div class="qualification_calendar">
-                                    <i class="uil uil-calendar-alt"></i> July 2021 - November 2021
-                                </div>
-                            </div>
-                        </div>
-
-
-
-
-
-                        <!-----------   AngelHack Student Ambassador ------------------->
-
-                        <div class="qualification_data">
-                            <div>
-                                <h3 class="qualification_title">Machine Learning Expert</h3>
-                                <span class="qualification_subtitle"><i>Part Time</i><br>The Robotics Forum, VIT
-                                    Pune</span>
-                                <div class="qualification_calendar">
-                                    <i class="uil uil-calendar-alt"></i> May 2020 - November 2020
-                                </div>
-                            </div>
-
-                            <div>
-                                <span class="qualification_circle"></span>
-                                <span class="qualification_line"></span>
-                            </div>
-                        </div>
-
                     </div>
                 </div>
-        </section>
-
-        <!---------------------------------- Projects section--------------------->
-
-
-        <section class="portfolio section" id="projects">
-            <h2 class="section_title">Projects</h2>
-            <span class="section_subtitle">Here are some of my projects awesome Projects!</span>
-
-            <div class="portfolio_container container swiper-container swiper mySwiper">
-                <div class="swiper-wrapper">
-
-                    <!-- Project 1 -->
-                    <div class="portfolio_content grid swiper-slide">
-                        <img src="./prasako.JPG" alt="" class="portfolio_img">
-
-                        <div class="portfolio_data">
-                            <h3 class="portfolio_title">
-                                Prasako: Virtual Trial Room
-                            </h3>
-                            <p class="portfolio_description">
-                                - Developed a neural network which gives virtual garment wear experience on image of the
-                                user.<br>
-                                - Won an intercollege hackathon.
-                            </p>
-                            <a href="https://docs.google.com/presentation/d/1x9M5_ItrVxQHofroyNyMVtMrG_4g9APh/edit?usp=sharing&ouid=106465311006086738936&rtpof=true&sd=true"
-                                class="button button-flex button-small portfolio_button" target="_blank">
-                                Check out
-                                <i class="uil uil-arrow-right button_icon"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <!-- Project 2 -->
-                    <div class="portfolio_content grid swiper-slide">
-                        <img src="./space_vaarta.JPG" alt="" class="portfolio_img">
-
-                        <div class="portfolio_data">
-                            <h3 class="portfolio_title">
-                                SpaceVaarta - SIH National Level, ISRO
-                            </h3>
-                            <p class="portfolio_description">
-                                An algorithm that can be used for ISRO's <i>Gagan-Yaan</i> Project. <br>It attempts to
-                                attain in Adaptive Speech Mixing & Audio-Video Synchronization
-
-                            </p>
-                            <a href="https://space-vaarta.herokuapp.com/"
-                                class="button button-flex button-small portfolio_button" target="_blank">
-                                Check out
-                            </a>
-                            <a style="background-color: rgb(68, 206, 78);"
-                                href="https://www.youtube.com/watch?v=4w5bn6j4jEU&feature=youtu.be"
-                                class="button button-flex button-small portfolio_button" target="_blank">
-                                Watch
-                            </a>
-                        </div>
-                    </div>
-                    <!-- Project 3 -->
-                    <div class="portfolio_content grid swiper-slide">
-                        <img src="./hr_management.JPG" alt="" class="portfolio_img">
-
-                        <div class="portfolio_data">
-                            <h3 class="portfolio_title">
-                                TEE: HR & Payroll Software
-                            </h3>
-                            <p class="portfolio_description">Offline Software for a Builder's firm so that he could
-                                manage his work
-                                <li>
-                                    <ul>- Add/Edit/Delete Employee Details</ul>
-                                    <ul>- Record Attendance</ul>
-                                    <ul>- Calculate Salary with HRA, PF </ul>
-                                    <ul>- Generate Payment Reports (Site wise, Rank wise, etc)</ul>
-                                    <ul>- Auto create Employee payslips</ul><br>
-                                <li>
-                            </p>
-                            <a href="https://www.youtube.com/watch?v=in33uMGHfBM"
-                                class="button button-flex button-small portfolio_button" target="_blank">
-                                Watch Video
-                                <i class="uil uil-arrow-right button_icon"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <!-- Project 4 -->
-                    <div class="portfolio_content grid swiper-slide">
-                        <img src="./cobb_finder.JPG" alt="" class="portfolio_img">
-
-                        <div class="portfolio_data">
-                            <h3 class="portfolio_title">
-                                Cobb Angle Estimation
-                            </h3>
-                            <p class="portfolio_description">
-                                A Neural network that could help doctors for dignosis of Scoliosis. It takes X-ray input
-                                of Vertibral Column in AP(Anterio Posterior) View, and calculates Cobb Angles. Cobb
-                                Angle is a measure for estimating the need of Surgery
-                            </p>
-                            <a href="https://cobbfinder.herokuapp.com/"
-                                class="button button-flex button-small portfolio_button" target="_blank">
-                                Check out
-                                <i class="uil uil-arrow-right button_icon"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <!-- Project 5 -->
-                    <div class="portfolio_content grid swiper-slide">
-                        <img src="./payment-gateway-integration.png" alt="" class="portfolio_img">
-
-                        <div class="portfolio_data">
-                            <h3 class="portfolio_title">
-                                HanDriver: AI Based Arcade Car Game
-                            </h3>
-                            <p class="portfolio_description">
-                                A car game that operates on Hand Gestures of the user.
-                                Reduced runtime lag of 10 seconds to less than 1 second for non-GPU devices by avoiding
-                                use of complex Neural Networks.
-                            </p>
-                            <a href="https://drive.google.com/drive/u/2/folders/1Q6MYCS9Ru3HFyE1jzVl8zYczx29ow7Mv"
-                                class="button button-flex button-small portfolio_button" target="_blank">
-                                Check out
-                                <i class="uil uil-arrow-right button_icon"></i>
-                            </a>
-                        </div>
-                    </div>
-
-
-                </div>
-
-                <!-- Arrows -->
-                <div class="swiper-button-next">
-                    <i class="uil uil-angle-right-b swiper-portfolio-icon"></i>
-                </div>
-                <div class="swiper-button-prev">
-                    <i class="uil uil-angle-left-b swiper-portfolio-icon"></i>
-                </div>
-                <!-- Pagination -->
-                <div class="swiper-pagination"></div>
             </div>
         </section>
 
-
-
-
-        <!-- Contact Me -->
-        <section class="contact section" id="contact">
-            <h1 class="section_title">Contact Me</h1>
-            <span class="section_subtitle">
-                Wish to connect? My inbox is always open!
-            </span>
-
-            <div class="contact_container container grid">
-                <div>
-                    <a href="choudhariprathmesh001@gmail.com" target="_blank">
-                        <div class="contact_info">
-                            <i class="uil uil-envelope-alt contact_icon"></i>
-                            <div>
-                                <h3 class="contact_title">Email</h3>
-                                <span class="contact_subtitle">choudhariprathmesh001@gmail.com</span>
-                            </div>
-                        </div>
-                    </a>
-
-                    <a href="https://twitter.com/pratham_uvaach" target="_blank">
-                        <div class="contact_info">
-                            <i class="uil uil-twitter-alt contact_icon"></i>
-                            <div>
-                                <h3 class="contact_title">Twitter</h3>
-                                <span class="contact_subtitle">@pratham_uvaach</span>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-                <form action="https://formspree.io/f/xgebodzk" class="contact_form grid" id="contact-form"
-                    method="POST">
-                    <div id="alert" class="alert_style"></div>
-                    <div class="contact_inputs grid">
-                        <div class="contact_content">
-                            <label class="contact_label">Name</label>
-                            <input type="text" name="name" class="contact_input" id="name" required>
-                        </div>
-                        <div class="contact_content">
-                            <label for="email" class="contact_label">Email</label>
-                            <input type="email" name="email" class="contact_input" id="email" required>
-                        </div>
-                    </div>
-                    <div class="contact_content">
-                        <label for="subject" class="contact_label">Subject</label>
-                        <input type="text" name="subject" class="contact_input" id="subject" required>
-                    </div>
-                    <div class="contact_content">
-                        <label for="message" class="contact_label">Message</label>
-                        <textarea name="message" id="" cols="0" rows="7" class="contact_input message" id="message"
-                            required></textarea>
-                    </div>
-
+        <!-- Skills Section (Formatted) -->
+        <section id="skills" class="py-20 bg-soft-accent">
+            <div class="container mx-auto px-6">
+                <h2 class="section-title">Technical Skills</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
                     <div>
-                        <button type="submit" class="button button-flex">
-                            Send Message
-                            <i class="uil uil-message button_icon"></i>
-                        </button>
+                        <h3 class="text-xl font-bold mb-4">Programming</h3>
+                        <ul class="space-y-2 text-secondary text-lg">
+                            <li><i class="fab fa-python mr-2"></i>Python</li>
+                            <li><i class="fas fa-code mr-2"></i>C++</li>
+                            <li><i class="fab fa-java mr-2"></i>Java Spring Boot</li>
+                            <li><i class="fab fa-php mr-2"></i>PHP, Node.js, Django</li>
+                        </ul>
                     </div>
-                </form>
-
+                    <div>
+                        <h3 class="text-xl font-bold mb-4">Web Development</h3>
+                        <ul class="space-y-2 text-secondary text-lg">
+                            <li><i class="fab fa-html5 mr-2"></i>HTML & CSS</li>
+                            <li><i class="fab fa-js-square mr-2"></i>JavaScript & jQuery</li>
+                            <li><i class="fas fa-database mr-2"></i>MySQL</li>
+                            <li><i class="fas fa-database mr-2"></i>PostgreSQL</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-4">AI & Data Science</h3>
+                        <ul class="space-y-2 text-secondary text-lg">
+                            <li><i class="fas fa-brain mr-2"></i>TensorFlow & Sklearn</li>
+                            <li><i class="fas fa-table mr-2"></i>Pandas & OpenCV</li>
+                            <li><i class="fas fa-robot mr-2"></i>Deep Learning & LLMs</li>
+                            <li><i class="fas fa-search mr-2"></i>RAG</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-4">Salesforce</h3>
+                        <ul class="space-y-2 text-secondary text-lg">
+                            <li><i class="uil uil-lightbulb-alt mr-2"></i>Lightning Web Components</li>
+                            <li><i class="uil uil-server mr-2"></i>Apex Controllers</li>
+                            <li><i class="uil uil-bolt-alt mr-2"></i>Triggers</li>
+                            <li><i class="uil uil-exchange mr-2"></i>API Integration</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <!-- <section> -->
+        <!-- Achievements & Certifications Section -->
+        <section id="achievements" class="py-20">
+            <div class="container mx-auto px-6">
+                <h2 class="section-title">Achievements & Certifications</h2>
+                <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="text-2xl font-bold mb-4 text-center">Hackathons & Awards</h3>
+                        <ul class="list-disc list-inside space-y-2 text-secondary text-lg">
+                            <li>Smart India Hackathon (2022): Selected for ISRO problem statement.</li>
+                            <li>Vishwa Karandak Hackathon (2020): Secured 2nd position.</li>
+                            <li>Smart India Hackathon (2020): Led winning team at VIT Pune.</li>
+                            <li>Public Speaking Champion: Multiple 1st and 3rd place wins.</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold mb-4 text-center">Certifications</h3>
+                        <ul class="list-disc list-inside space-y-2 text-secondary text-lg">
+                            <li>Salesforce Platform Developer 1</li>
+                            <li>Salesforce Administrator</li>
+                            <li>Deep Learning Specialization (deeplearning.ai)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-        <!-- <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet"> -->
-        <!-- Calendly badge widget begin -->
-        <!-- <script -->
-        <!-- type="text/javascript">window.onload = function () { Calendly.initBadgeWidget({ url: 'https://calendly.com/gsarage19/30min?hide_event_type_details=1&hide_gdpr_banner=1', text: 'Schedule time with me', color: '#0069ff', textColor: '#ffffff', branding: true }); }</script> -->
-        <!-- <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script> -->
-        <!-- Calendly badge widget end -->
-
-        <!-- </section> -->
+        <!-- Contact Section -->
+        <section id="contact" class="py-20 bg-soft-accent">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="section-title">Get In Touch</h2>
+                <p class="text-xl text-secondary mb-8 max-w-2xl mx-auto">I'm always open to discussing new projects, creative ideas, or opportunities to be part of an ambitious vision. Feel free to reach out.</p>
+                <a href="mailto:choudhariprathmesh001@gmail.com" class="btn-primary inline-block text-xl py-4 px-8 rounded-lg font-semibold">Say Hello</a>
+                <div class="flex justify-center gap-8 mt-12 text-3xl">
+                    <a href="https://github.com/iampratham29/" target="_blank" rel="noopener noreferrer" class="text-secondary hover:text-primary transition-colors"><i class="uil uil-github-alt"></i></a>
+                    <a href="https://www.linkedin.com/in/prathmesh-santosh-choudhari-943769170/" target="_blank" rel="noopener noreferrer" class="text-secondary hover:text-primary transition-colors"><i class="uil uil-linkedin-alt"></i></a>
+                    <a href="https://x.com/iampratham29" target="_blank" rel="noopener noreferrer" class="text-secondary hover:text-primary transition-colors"><i class="uil uil-twitter-alt"></i></a>
+                    <a href="https://www.instagram.com/prathmesh.h5/" target="_blank" rel="noopener noreferrer" class="text-secondary hover:text-primary transition-colors"><i class="uil uil-instagram"></i></a>
+                </div>
+            </div>
+        </section>
     </main>
 
-
-
-
     <!-- Footer -->
-    <footer class="footer">
-        <div class="footer_bg">
-            <div class="footer_container container grid">
-                <div>
-                    <h1 class="footer_title">Prathmesh Choudhari</h1>
-                    <span class="footer_subtitle"><b>Software Developer and Researcher</b><br>Pune,
-                        Maharashtra, India</span>
-                </div>
-
-                <ul class="footer_links">
-                    <li>
-                        <a href="#about" class="footer_link">About</a>
-                    </li>
-                    <li>
-                        <a href="#projects" class="footer_link">Projects</a>
-                    </li>
-                    <li>
-                        <a href="#contact" class="footer_link">Contact Me</a>
-                    </li>
-                </ul>
-
-                <div class="footer_socials">
-                    <a href="https://www.linkedin.com/in/prathmesh-choudhari-943769170/" class="footer_social"
-                        target="_blank">
-                        <i class="uil uil-linkedin-alt"></i>
-                    </a>
-
-                    <a href="https://github.com/iampratham29/" class="footer_social" target="_blank">
-                        <i class="uil uil-github-alt"></i>
-                    </a>
-
-                    <a href="https://twitter.com/pratham_uvaach" class="footer_social" target="_blank">
-                        <i class="uil uil-twitter-alt"></i>
-                    </a>
-
-                    <a href="https://www.instagram.com/iampratham_29" class="footer_social" target="_blank">
-                        <i class="uil uil-instagram"></i>
-                    </a>
-                    </a>
-                </div>
+    <footer class="bg-gray-800 text-white py-6">
+        <div class="container mx-auto px-6 text-center">
+            <p>&copy; 2025 Prathmesh Santosh Choudhari. All Rights Reserved.</p>
+            <div class="flex justify-center gap-6 mt-4 text-2xl">
+                <a href="https://github.com/iampratham29/" target="_blank" class="hover:text-gray-400"><i class="uil uil-github-alt"></i></a>
+                <a href="https://www.linkedin.com/in/prathmesh-santosh-choudhari-943769170/" target="_blank" class="hover:text-gray-400"><i class="uil uil-linkedin-alt"></i></a>
+                <a href="https://x.com/iampratham29" target="_blank" class="hover:text-gray-400"><i class="uil uil-twitter-alt"></i></a>
+                <a href="https://www.instagram.com/prathmesh.h5/" target="_blank" class="hover:text-gray-400"><i class="uil uil-instagram"></i></a>
             </div>
-
-            <p class="footer_copy">&#169; Prathmesh Choudhari. All rights reserved</p>
         </div>
     </footer>
 
-    <!-- Scroll Top -->
-    <a href="#" class="scrollup" id="scroll-up">
-        <i class="uil uil-arrow-up scrollup_icon"></i>
-    </a>
+    <!-- JS for mobile menu, header scroll, and dark mode -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const navLinks = document.querySelectorAll('.nav-link');
+            const header = document.getElementById('header');
+            const darkModeToggle = document.getElementById('dark-mode-toggle');
+            const body = document.body;
 
-    <!-- Swiper JS -->
-    <script src="swiper-bundle.min.js"></script>
+            // Mobile menu
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
 
-    <script src="main.js"></script>
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                });
+            });
+
+            // Header hide on scroll
+            let lastScrollTop = 0;
+            window.addEventListener('scroll', function() {
+                let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                if (scrollTop > lastScrollTop) {
+                    header.style.top = "-100px";
+                } else {
+                    header.style.top = "0";
+                }
+                lastScrollTop = scrollTop;
+            });
+
+            // Dark mode toggle
+            darkModeToggle.addEventListener('click', () => {
+                body.classList.toggle('dark');
+                // Change icon
+                if (body.classList.contains('dark')) {
+                    darkModeToggle.innerHTML = '<i class="uil uil-sun"></i>';
+                } else {
+                    darkModeToggle.innerHTML = '<i class="uil uil-moon"></i>';
+                }
+            });
+        });
+    </script>
 </body>
-
 </html>
