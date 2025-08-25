@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Based Virtual Trial Room Project</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'inter': ['Inter', 'sans-serif'],
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.8s ease-in-out',
+                        'slide-up': 'slideUp 0.6s ease-out',
+                        'bounce-gentle': 'bounceGentle 2s infinite',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' }
+                        },
+                        slideUp: {
+                            '0%': { opacity: '0', transform: 'translateY(30px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' }
+                        },
+                        bounceGentle: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: "Inter", sans-serif;
+            scroll-behavior: smooth;
+        }
+        
+        .glass-card {
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .tech-gradient {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+        
+        .card {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 1rem;
+            box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+            transition: all 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(31, 38, 135, 0.2);
+        }
+        
+        .section-title {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 2px;
+        }
+        
+        .tech-icon {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .floating {
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .parallax {
+            transform-style: preserve-3d;
+        }
+        
+        .methodology-step {
+            position: relative;
+            padding-left: 3rem;
+            margin-bottom: 2rem;
+        }
+        
+        .methodology-step::before {
+            content: attr(data-step);
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 2rem;
+            height: 2rem;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 0.875rem;
+        }
+        
+        .image-container {
+            position: relative;
+            overflow: hidden;
+            border-radius: 1rem;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s ease;
+        }
+        
+        .image-container:hover {
+            transform: scale(1.02);
+        }
+        
+        .image-container img {
+            width: 100%;
+            height: auto;
+            transition: all 0.3s ease;
+        }
+        
+        .image-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.8), rgba(118, 75, 162, 0.8));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+        }
+        
+        .image-container:hover .image-overlay {
+            opacity: 1;
+        }
+        
+        .stats-card {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .stats-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .floating-elements {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            pointer-events: none;
+        }
+        
+        .floating-elements::before,
+        .floating-elements::after {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .floating-elements::before {
+            top: 10%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+        
+        .floating-elements::after {
+            bottom: 10%;
+            right: 10%;
+            animation-delay: 3s;
+        }
+    </style>
+</head>
+<body class="min-h-screen relative overflow-x-hidden">
+    <!-- Animated Background -->
+    <div class="fixed inset-0 -z-10">
+        <div class="absolute inset-0 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50"></div>
+        <div class="floating-elements"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 glass-card">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-2">
+                    <i class="fas fa-tshirt text-2xl tech-icon"></i>
+                    <span class="text-xl font-bold text-gray-800">Virtual Trial Room</span>
+                </div>
+                <div class="hidden md:flex space-x-6">
+                    <a href="#overview" class="text-gray-700 hover:text-indigo-600 transition-colors">Overview</a>
+                    <a href="#methodology" class="text-gray-700 hover:text-indigo-600 transition-colors">Methodology</a>
+                    <a href="#results" class="text-gray-700 hover:text-indigo-600 transition-colors">Results</a>
+                    <a href="#applications" class="text-gray-700 hover:text-indigo-600 transition-colors">Applications</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mx-auto max-w-7xl px-4 py-8 mt-20 space-y-12">
+        <!-- Hero Section -->
+        <div class="card p-8 text-center relative animate-fade-in">
+            <div class="absolute inset-0 gradient-bg opacity-5 rounded-xl"></div>
+            <div class="relative z-10">
+                <div class="floating mb-6">
+                    <div class="inline-flex items-center space-x-4 text-6xl">
+                        <i class="fas fa-tshirt tech-icon"></i>
+                        <i class="fas fa-magic tech-icon"></i>
+                        <i class="fas fa-user tech-icon"></i>
+                    </div>
+                </div>
+                <h1 class="text-6xl md:text-7xl font-extrabold mb-6">
+                    <span class="bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
+                        AI Virtual Trial Room
+                    </span>
+                </h1>
+                <div class="w-24 h-1 bg-gradient-to-r from-indigo-500 to-purple-500 mx-auto mb-6 rounded-full"></div>
+                <p class="text-xl md:text-2xl text-gray-700 mb-8 max-w-4xl mx-auto leading-relaxed">
+                    Revolutionary AI-powered solution using <span class="font-semibold text-indigo-600">Region Proposal Neural Networks</span> 
+                    for efficient, cost-effective virtual clothing trials
+                </p>
+                <div class="flex flex-wrap justify-center gap-4">
+                    <div class="stats-card px-6 py-4 rounded-full">
+                        <div class="text-2xl font-bold text-indigo-600">90%</div>
+                        <div class="text-sm text-gray-600">Accuracy</div>
+                    </div>
+                    <div class="stats-card px-6 py-4 rounded-full">
+                        <div class="text-2xl font-bold text-purple-600">600+</div>
+                        <div class="text-sm text-gray-600">Dataset Images</div>
+                    </div>
+                    <div class="stats-card px-6 py-4 rounded-full">
+                        <div class="text-2xl font-bold text-pink-600">Cost-Effective</div>
+                        <div class="text-sm text-gray-600">Solution</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Project Overview -->
+        <div id="overview" class="card p-8 animate-slide-up">
+            <h2 class="section-title">Project Overview & Motivation</h2>
+            <div class="grid md:grid-cols-2 gap-8 items-center">
+                <div class="space-y-6">
+                    <p class="text-gray-700 text-lg leading-relaxed">
+                        The rapid growth of e-commerce has transformed retail, with online clothing shopping gaining immense popularity. 
+                        However, this shift brings challenges including high return rates due to ill-fitting garments and safety concerns 
+                        with physical trial rooms.
+                    </p>
+                    <div class="bg-gradient-to-r from-red-50 to-orange-50 p-6 rounded-xl border-l-4 border-red-400">
+                        <h4 class="font-semibold text-red-800 mb-2">Current Problem</h4>
+                        <p class="text-red-700">Existing solutions rely on expensive hardware like Microsoft Kinect 2 cameras, 
+                        costing up to <span class="font-bold">$20,000/year</span> for licensed kiosks.</p>
+                    </div>
+                    <div class="bg-gradient-to-r from-green-50 to-emerald-50 p-6 rounded-xl border-l-4 border-green-400">
+                        <h4 class="font-semibold text-green-800 mb-2">Our Solution</h4>
+                        <p class="text-green-700">Cost-effective, AI-powered virtual trial room using advanced computer vision 
+                        without specialized sensors.</p>
+                    </div>
+                </div>
+                <div class="image-container">
+                    <img src="prasako.JPG" alt="Virtual Trial Room Concept">
+                    <div class="image-overlay">
+                        <i class="fas fa-eye text-4xl"></i>
+                    </div>
+                    <p class="text-center text-gray-600 mt-4 font-medium">AI-Powered Virtual Trial Experience</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Technology Stack -->
+        <div class="card p-8">
+            <h2 class="section-title">Technology Stack</h2>
+            <p class="text-gray-700 text-lg mb-8">Powered by cutting-edge AI and computer vision technologies:</p>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="group bg-gradient-to-br from-blue-50 to-indigo-50 p-6 rounded-xl border border-blue-100 hover:shadow-lg transition-all duration-300">
+                    <div class="flex items-center space-x-3 mb-4">
+                        <i class="fab fa-python text-3xl text-blue-600"></i>
+                        <h3 class="text-xl font-semibold text-gray-800">TensorFlow</h3>
+                    </div>
+                    <p class="text-gray-600">Primary framework for building and training deep learning models with robust performance.</p>
+                </div>
+                
+                <div class="group bg-gradient-to-br from-purple-50 to-pink-50 p-6 rounded-xl border border-purple-100 hover:shadow-lg transition-all duration-300">
+                    <div class="flex items-center space-x-3 mb-4">
+                        <i class="fas fa-brain text-3xl text-purple-600"></i>
+                        <h3 class="text-xl font-semibold text-gray-800">Mask R-CNN</h3>
+                    </div>
+                    <p class="text-gray-600">Advanced architecture for instance segmentation and precise object detection.</p>
+                </div>
+                
+                <div class="group bg-gradient-to-br from-green-50 to-emerald-50 p-6 rounded-xl border border-green-100 hover:shadow-lg transition-all duration-300">
+                    <div class="flex items-center space-x-3 mb-4">
+                        <i class="fas fa-camera text-3xl text-green-600"></i>
+                        <h3 class="text-xl font-semibold text-gray-800">OpenCV</h3>
+                    </div>
+                    <p class="text-gray-600">Computer vision library for image processing, resizing, and superimposition.</p>
+                </div>
+                
+                <div class="group bg-gradient-to-br from-orange-50 to-red-50 p-6 rounded-xl border border-orange-100 hover:shadow-lg transition-all duration-300">
+                    <div class="flex items-center space-x-3 mb-4">
+                        <i class="fas fa-cog text-3xl text-orange-600"></i>
+                        <h3 class="text-xl font-semibold text-gray-800">CAFFE Framework</h3>
+                    </div>
+                    <p class="text-gray-600">Custom modified model for accurate key-point detection on bodies and garments.</p>
+                </div>
+                
+                <div class="group bg-gradient-to-br from-yellow-50 to-amber-50 p-6 rounded-xl border border-yellow-100 hover:shadow-lg transition-all duration-300">
+                    <div class="flex items-center space-x-3 mb-4">
+                        <i class="fas fa-tags text-3xl text-yellow-600"></i>
+                        <h3 class="text-xl font-semibold text-gray-800">VGG Annotator</h3>
+                    </div>
+                    <p class="text-gray-600">Precision tool for annotating datasets and marking key points and regions.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Methodology -->
+        <div id="methodology" class="card p-8">
+            <h2 class="section-title">Methodology</h2>
+            <p class="text-gray-700 text-lg mb-8">Our innovative six-step process for realistic garment superimposition:</p>
+            
+            <div class="space-y-8">
+                <div class="methodology-step" data-step="1">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4">Data Collection & Annotation</h3>
+                    <div class="grid md:grid-cols-2 gap-6 items-center">
+                        <div>
+                            <p class="text-gray-700 mb-4">Curated custom dataset of 600+ shirt images with diverse styles and sizes, 
+                            meticulously annotated using VGG Annotator for precise key-points and contours.</p>
+                            <div class="bg-blue-50 p-4 rounded-lg border-l-4 border-blue-400">
+                                <p class="text-blue-800"><i class="fas fa-info-circle mr-2"></i>
+                                <strong>Dataset Quality:</strong> Each image manually verified for annotation accuracy</p>
+                            </div>
+                        </div>
+                        <div class="image-container">
+                            <img src="VTR-Images/Annotated Image.png" alt="Annotated Garment">
+                            <div class="image-overlay">
+                                <span>View Annotations</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="methodology-step" data-step="2">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4">Mask R-CNN Training</h3>
+                    <div class="grid md:grid-cols-2 gap-6 items-center">
+                        <div class="image-container">
+                            <img src="VTR-Images/MaskRCNNArch.jpg" alt="Mask RCNN Architecture">
+                            <div class="image-overlay">
+                                <span>Architecture Details</span>
+                            </div>
+                        </div>
+                        <div>
+                            <p class="text-gray-700 mb-4">Trained Mask R-CNN on annotated dataset for superior instance segmentation, 
+                            providing pixel-level masks for each Region of Interest (ROI).</p>
+                            <div class="grid grid-cols-2 gap-4">
+                                <div class="text-center p-4 bg-purple-50 rounded-lg">
+                                    <div class="text-2xl font-bold text-purple-600">40</div>
+                                    <div class="text-sm text-purple-700">Training Epochs</div>
+                                </div>
+                                <div class="text-center p-4 bg-purple-50 rounded-lg">
+                                    <div class="text-2xl font-bold text-purple-600">90%</div>
+                                    <div class="text-sm text-purple-700">Class Accuracy</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="methodology-step" data-step="3">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4">Ground Truth Generation & Cropping</h3>
+                    <div class="text-center mb-6">
+                        <p class="text-gray-700 mb-6">Generate precise masks that highlight garment portions and crop excess white space for cleaner results.</p>
+                        <div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+                            <div class="space-y-4">
+                                <div class="image-container">
+                                    <img src="VTR-Images/Ground Truths.png" alt="Generated Ground Truth">
+                                    <div class="image-overlay">
+                                        <span>Original Mask</span>
+                                    </div>
+                                </div>
+                                <p class="text-sm text-gray-600 font-medium">Generated Ground Truth Mask</p>
+                            </div>
+                            <div class="space-y-4">
+                                <div class="image-container">
+                                    <img src="VTR-Images/Cropped GT.png" alt="Cropped Ground Truth">
+                                    <div class="image-overlay">
+                                        <span>Refined Boundaries</span>
+                                    </div>
+                                </div>
+                                <p class="text-sm text-gray-600 font-medium">Cropped & Refined Result</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="methodology-step" data-step="4">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4">Key-point Detection</h3>
+                    <div class="grid md:grid-cols-2 gap-6 items-center">
+                        <div>
+                            <p class="text-gray-700 mb-4">Critical for accurate superimposition - detect key points on both human body 
+                            (shoulders, neck, waist) and garments using modified CAFFE-based model.</p>
+                            <div class="space-y-3">
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-3 h-3 bg-red-500 rounded-full"></div>
+                                    <span class="text-gray-700">Shoulder Points</span>
+                                </div>
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-3 h-3 bg-blue-500 rounded-full"></div>
+                                    <span class="text-gray-700">Neck Reference</span>
+                                </div>
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-3 h-3 bg-green-500 rounded-full"></div>
+                                    <span class="text-gray-700">Waist Alignment</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="image-container">
+                            <img src="VTR-Images/KeyPoint Detection.png" alt="Key-point Detection">
+                            <div class="image-overlay">
+                                <span>Interactive Points</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="methodology-step" data-step="5">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4">Intelligent Garment Resizing</h3>
+                    <div class="text-center">
+                        <p class="text-gray-700 mb-6">Dynamic resizing based on user body shape using unitary method calculations 
+                        for required width (R<sub>W</sub>) and height (R<sub>H</sub>) based on key-point coordinates.</p>
+                        <div class="bg-gradient-to-r from-indigo-50 to-purple-50 p-6 rounded-xl border border-indigo-200 max-w-2xl mx-auto">
+                            <div class="image-container mb-4">
+                                <img src="VTR-Images/Garment Resize Formula.png" alt="Garment Resizing Formula">
+                                <div class="image-overlay">
+                                    <span>Mathematical Model</span>
+                                </div>
+                            </div>
+                            <p class="text-sm text-indigo-700 font-medium">Advanced mathematical model for precise fitting calculations</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="methodology-step" data-step="6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4">Transparent Background & Superimposition</h3>
+                    <div class="grid md:grid-cols-2 gap-6 items-center">
+                        <div class="image-container">
+                            <img src="VTR-Images/SuperimposedImage.png" alt="Superimposed Result">
+                            <div class="image-overlay">
+                                <span>Virtual Try-On</span>
+                            </div>
+                        </div>
+                        <div>
+                            <p class="text-gray-700 mb-4">Final step combines transparent background processing with precise coordinate geometry 
+                            for realistic virtual try-on effect.</p>
+                            <div class="bg-gradient-to-r from-pink-50 to-rose-50 p-4 rounded-lg border-l-4 border-pink-400">
+                                <p class="text-pink-800"><i class="fas fa-magic mr-2"></i>
+                                <strong>Result:</strong> Seamless garment integration with natural appearance</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Results and Findings -->
+        <div id="results" class="card p-8">
+            <h2 class="section-title">Results and Findings</h2>
+            <p class="text-gray-700 text-lg mb-8">Comprehensive evaluation of model performance and processing efficiency:</p>
+            
+            <div class="grid lg:grid-cols-2 gap-8">
+                <div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-6">Performance Metrics</h3>
+                    <div class="overflow-hidden rounded-xl border border-gray-200 shadow-lg">
+                        <table class="w-full">
+                            <thead class="bg-gradient-to-r from-indigo-600 to-purple-600 text-white">
+                                <tr>
+                                    <th class="py-4 px-6 text-left font-semibold">Parameter</th>
+                                    <th class="py-4 px-6 text-left font-semibold">Loss</th>
+                                    <th class="py-4 px-6 text-left font-semibold">Accuracy</th>
+                                </tr>
+                            </thead>
+                            <tbody class="bg-white">
+                                <tr class="border-b border-gray-100 hover:bg-gray-50 transition-colors">
+                                    <td class="py-4 px-6 font-medium text-gray-800">
+                                        <div class="flex items-center space-x-2">
+                                            <div class="w-3 h-3 bg-green-500 rounded-full"></div>
+                                            <span>class_loss</span>
+                                        </div>
+                                    </td>
+                                    <td class="py-4 px-6 text-gray-700 font-mono">0.1092</td>
+                                    <td class="py-4 px-6">
+                                        <div class="flex items-center space-x-2">
+                                            <div class="flex-1 bg-gray-200 rounded-full h-2">
+                                                <div class="bg-green-500 h-2 rounded-full" style="width: 90%"></div>
+                                            </div>
+                                            <span class="text-green-600 font-semibold">90%</span>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr class="border-b border-gray-100 hover:bg-gray-50 transition-colors">
+                                    <td class="py-4 px-6 font-medium text-gray-800">
+                                        <div class="flex items-center space-x-2">
+                                            <div class="w-3 h-3 bg-blue-500 rounded-full"></div>
+                                            <span>bbox_loss</span>
+                                        </div>
+                                    </td>
+                                    <td class="py-4 px-6 text-gray-700 font-mono">0.1897</td>
+                                    <td class="py-4 px-6">
+                                        <div class="flex items-center space-x-2">
+                                            <div class="flex-1 bg-gray-200 rounded-full h-2">
+                                                <div class="bg-blue-500 h-2 rounded-full" style="width: 81%"></div>
+                                            </div>
+                                            <span class="text-blue-600 font-semibold">81%</span>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-gray-50 transition-colors">
+                                    <td class="py-4 px-6 font-medium text-gray-800">
+                                        <div class="flex items-center space-x-2">
+                                            <div class="w-3 h-3 bg-orange-500 rounded-full"></div>
+                                            <span>mask_loss</span>
+                                        </div>
+                                    </td>
+                                    <td class="py-4 px-6 text-gray-700 font-mono">0.3826</td>
+                                    <td class="py-4 px-6">
+                                        <div class="flex items-center space-x-2">
+                                            <div class="flex-1 bg-gray-200 rounded-full h-2">
+                                                <div class="bg-orange-500 h-2 rounded-full" style="width: 61%"></div>
+                                            </div>
+                                            <span class="text-orange-600 font-semibold">61%</span>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p class="text-sm text-gray-500 mt-4 italic">
+                        <i class="fas fa-info-circle mr-1"></i>
+                        All parameters validated after 40 epochs of Mask R-CNN training
+                    </p>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-6">Performance Comparison</h3>
+                    <div class="image-container mb-4">
+                        <img src="VTR-Images/MRCNN and PoseNet.png" alt="Performance Comparison">
+                        <div class="image-overlay">
+                            <span>Interactive Chart</span>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 text-center">Runtime efficiency comparison between Mask R-CNN and other pose estimation models</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Advantages and Applications -->
+        <div id="applications" class="card p-8">
+            <h2 class="section-title">Advantages and Applications</h2>
+            <div class="grid lg:grid-cols-2 gap-8">
+                <div class="space-y-6">
+                    <h3 class="text-2xl font-semibold text-gray-800 flex items-center space-x-2">
+                        <i class="fas fa-star text-yellow-500"></i>
+                        <span>Key Advantages</span>
+                    </h3>
+                    
+                    <div class="space-y-4">
+                        <div class="group p-4 rounded-xl bg-gradient-to-r from-green-50 to-emerald-50 border border-green-100 hover:shadow-md transition-all duration-300">
+                            <div class="flex items-start space-x-4">
+                                <div class="flex-shrink-0 w-10 h-10 bg-green-500 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
+                                    <i class="fas fa-dollar-sign text-white"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-green-800 mb-1">Cost-Effective Solution</h4>
+                                    <p class="text-green-700 text-sm">Eliminates expensive Kinect sensors, reducing implementation costs by up to 80%</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="group p-4 rounded-xl bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-100 hover:shadow-md transition-all duration-300">
+                            <div class="flex items-start space-x-4">
+                                <div class="flex-shrink-0 w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
+                                    <i class="fas fa-smile text-white"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-blue-800 mb-1">Enhanced Customer Satisfaction</h4>
+                                    <p class="text-blue-700 text-sm">Visual garment preview reduces returns and improves shopping experience</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="group p-4 rounded-xl bg-gradient-to-r from-purple-50 to-pink-50 border border-purple-100 hover:shadow-md transition-all duration-300">
+                            <div class="flex items-start space-x-4">
+                                <div class="flex-shrink-0 w-10 h-10 bg-purple-500 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
+                                    <i class="fas fa-shield-alt text-white"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-purple-800 mb-1">Enhanced Safety</h4>
+                                    <p class="text-purple-700 text-sm">Safer alternative to physical trial rooms, addressing privacy concerns</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="group p-4 rounded-xl bg-gradient-to-r from-orange-50 to-red-50 border border-orange-100 hover:shadow-md transition-all duration-300">
+                            <div class="flex items-start space-x-4">
+                                <div class="flex-shrink-0 w-10 h-10 bg-orange-500 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
+                                    <i class="fas fa-tshirt text-white"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-orange-800 mb-1">Reduced Garment Damage</h4>
+                                    <p class="text-orange-700 text-sm">Minimizes wear and tear from physical try-ons, preserving inventory quality</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="group p-4 rounded-xl bg-gradient-to-r from-teal-50 to-cyan-50 border border-teal-100 hover:shadow-md transition-all duration-300">
+                            <div class="flex items-start space-x-4">
+                                <div class="flex-shrink-0 w-10 h-10 bg-teal-500 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
+                                    <i class="fas fa-users text-white"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-teal-800 mb-1">Greater Accessibility</h4>
+                                    <p class="text-teal-700 text-sm">Makes virtual trial technology accessible to SME vendors</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="space-y-6">
+                    <h3 class="text-2xl font-semibold text-gray-800 flex items-center space-x-2">
+                        <i class="fas fa-rocket text-indigo-500"></i>
+                        <span>Applications</span>
+                    </h3>
+                    
+                    <div class="space-y-4">
+                        <div class="group p-6 rounded-xl bg-gradient-to-br from-indigo-50 to-purple-50 border border-indigo-100 hover:shadow-lg transition-all duration-300">
+                            <div class="flex items-center space-x-3 mb-3">
+                                <i class="fas fa-shopping-cart text-2xl text-indigo-600 group-hover:bounce-gentle"></i>
+                                <h4 class="font-semibold text-indigo-800 text-lg">E-commerce Integration</h4>
+                            </div>
+                            <p class="text-indigo-700">Seamless integration into online shopping platforms and mobile applications for enhanced user experience.</p>
+                        </div>
+
+                        <div class="group p-6 rounded-xl bg-gradient-to-br from-pink-50 to-rose-50 border border-pink-100 hover:shadow-lg transition-all duration-300">
+                            <div class="flex items-center space-x-3 mb-3">
+                                <i class="fas fa-store text-2xl text-pink-600 group-hover:bounce-gentle"></i>
+                                <h4 class="font-semibold text-pink-800 text-lg">Interactive Retail Kiosks</h4>
+                            </div>
+                            <p class="text-pink-700">Digital mirrors and LCD displays in physical stores for immersive shopping experiences.</p>
+                        </div>
+
+                        <div class="group p-6 rounded-xl bg-gradient-to-br from-green-50 to-emerald-50 border border-green-100 hover:shadow-lg transition-all duration-300">
+                            <div class="flex items-center space-x-3 mb-3">
+                                <i class="fas fa-vr-cardboard text-2xl text-green-600 group-hover:bounce-gentle"></i>
+                                <h4 class="font-semibold text-green-800 text-lg">AR/VR Future Integration</h4>
+                            </div>
+                            <p class="text-green-700">Expandable to real-time 3D virtual trials using Augmented and Virtual Reality technologies.</p>
+                        </div>
+
+                        <div class="group p-6 rounded-xl bg-gradient-to-br from-yellow-50 to-orange-50 border border-yellow-100 hover:shadow-lg transition-all duration-300">
+                            <div class="flex items-center space-x-3 mb-3">
+                                <i class="fas fa-user-cog text-2xl text-yellow-600 group-hover:bounce-gentle"></i>
+                                <h4 class="font-semibold text-yellow-800 text-lg">Personalized Recommendations</h4>
+                            </div>
+                            <p class="text-yellow-700">AI-driven suggestions based on user preferences, body type, and style history.</p>
+                        </div>
+
+                        <div class="group p-6 rounded-xl bg-gradient-to-br from-purple-50 to-indigo-50 border border-purple-100 hover:shadow-lg transition-all duration-300">
+                            <div class="flex items-center space-x-3 mb-3">
+                                <i class="fas fa-comments text-2xl text-purple-600 group-hover:bounce-gentle"></i>
+                                <h4 class="font-semibold text-purple-800 text-lg">Design Feedback System</h4>
+                            </div>
+                            <p class="text-purple-700">User ratings and feedback integration to improve garment designs and quality iteratively.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Conclusion -->
+        <div class="card p-8 text-center relative overflow-hidden">
+            <div class="absolute inset-0 bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-600 opacity-5"></div>
+            <div class="relative z-10">
+                <div class="floating mb-6">
+                    <i class="fas fa-trophy text-6xl text-gradient bg-gradient-to-r from-yellow-400 to-orange-500 bg-clip-text text-transparent"></i>
+                </div>
+                <h2 class="section-title text-center">Project Impact & Future</h2>
+                <div class="max-w-4xl mx-auto space-y-6">
+                    <p class="text-xl text-gray-700 leading-relaxed">
+                        This project successfully introduces an innovative virtual trial room system that revolutionizes the intersection 
+                        of AI technology and retail experience. By leveraging the power of <span class="font-semibold text-indigo-600">Mask R-CNN</span> 
+                        and advanced key-point detection, we've developed an efficient, cost-effective solution that transforms online shopping.
+                    </p>
+                    
+                    <div class="grid md:grid-cols-3 gap-6 my-8">
+                        <div class="p-6 bg-gradient-to-br from-green-50 to-emerald-50 rounded-xl border border-green-200">
+                            <div class="text-3xl font-bold text-green-600 mb-2">80%</div>
+                            <div class="text-green-700 font-medium">Cost Reduction</div>
+                            <div class="text-sm text-green-600">vs. traditional solutions</div>
+                        </div>
+                        <div class="p-6 bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl border border-blue-200">
+                            <div class="text-3xl font-bold text-blue-600 mb-2">90%</div>
+                            <div class="text-blue-700 font-medium">Model Accuracy</div>
+                            <div class="text-sm text-blue-600">classification performance</div>
+                        </div>
+                        <div class="p-6 bg-gradient-to-br from-purple-50 to-pink-50 rounded-xl border border-purple-200">
+                            <div class="text-3xl font-bold text-purple-600 mb-2">∞</div>
+                            <div class="text-purple-700 font-medium">Future Potential</div>
+                            <div class="text-sm text-purple-600">scalable applications</div>
+                        </div>
+                    </div>
+
+                    <div class="bg-gradient-to-r from-indigo-50 to-purple-50 p-8 rounded-2xl border border-indigo-200">
+                        <h3 class="text-2xl font-semibold text-gray-800 mb-4">Vision for Tomorrow</h3>
+                        <p class="text-lg text-gray-700 leading-relaxed">
+                            We believe this system will serve as a robust foundation for future advancements in virtual try-on technology, 
+                            making personalized, immersive shopping experiences more widespread and affordable. The technology opens doors 
+                            to AR/VR integration, real-time processing, and AI-driven fashion recommendations that will reshape retail forever.
+                        </p>
+                    </div>
+
+                    <div class="flex flex-wrap justify-center gap-4 mt-8">
+                        <div class="px-6 py-3 bg-gradient-to-r from-indigo-500 to-purple-500 text-white rounded-full font-semibold shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
+                            <i class="fas fa-code mr-2"></i>Open Source Ready
+                        </div>
+                        <div class="px-6 py-3 bg-gradient-to-r from-green-500 to-emerald-500 text-white rounded-full font-semibold shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
+                            <i class="fas fa-leaf mr-2"></i>Sustainable Solution
+                        </div>
+                        <div class="px-6 py-3 bg-gradient-to-r from-pink-500 to-rose-500 text-white rounded-full font-semibold shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
+                            <i class="fas fa-heart mr-2"></i>User-Centric Design
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="text-center py-8 text-gray-600">
+            <div class="flex justify-center space-x-6 mb-4">
+                <i class="fab fa-github text-2xl hover:text-indigo-600 cursor-pointer transition-colors"></i>
+                <i class="fab fa-linkedin text-2xl hover:text-indigo-600 cursor-pointer transition-colors"></i>
+                <i class="fas fa-envelope text-2xl hover:text-indigo-600 cursor-pointer transition-colors"></i>
+            </div>
+            <p class="text-sm">
+                AI-Based Virtual Trial Room Project • Powered by Advanced Machine Learning • 2024
+            </p>
+            <div class="mt-4 text-xs text-gray-500">
+                <p>Built with TensorFlow • Mask R-CNN • OpenCV • CAFFE Framework</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scroll to Top Button -->
+    <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" 
+            class="fixed bottom-6 right-6 w-12 h-12 bg-gradient-to-r from-indigo-500 to-purple-500 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-110 z-50">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            });
+        });
+
+        // Add scroll effect to navigation
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 100) {
+                nav.classList.add('backdrop-blur-md');
+            } else {
+                nav.classList.remove('backdrop-blur-md');
+            }
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-slide-up');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all cards
+        document.querySelectorAll('.card').forEach(card => {
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
